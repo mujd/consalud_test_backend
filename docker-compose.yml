@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+   api:
+      container_name: consalud_backend
+      restart: always
+      build: .
+      ports:
+         - '8080:8080'
+      links:
+         - mongodb
+      volumes:
+         - .:/usr/src/app
+   mongodb:
+      container_name: consalud_mongo_database
+      image: mongo
+      ports:
+         - '27017:27017'
+      logging:
+         driver: none
