@@ -1,4 +1,4 @@
-# Consalud prueba tecnica - Node.js., MongoDB, Docker.
+## Consalud prueba tecnica backend - Node.js., MongoDB, Docker.
 
 ---
 
@@ -7,7 +7,7 @@
 ##### Con Docker
 
 -  Clonar repositorio
--  Instalar dependencias con comando `docker-compose build` y luego usa el comando `docker-compose up`
+-  Para levantar el proyecto usa el comando `docker-compose build` y luego usa el comando `docker-compose up`
 -  el proyecto usa el la ruta `http://localhost:8080/api` para los llamados a la api. Para mas facilidad de uso no inclui dotenv ni el archivo `.env`
 ---
 ##### Con npm / yarn
