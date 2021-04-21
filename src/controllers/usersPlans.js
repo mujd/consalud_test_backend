@@ -1,11 +1,11 @@
 const { response } = require('express');
 const { UserPlan } = require('../models');
 const { clientPlansAxios, formatMoney } = require('../helpers');
-const { localPlans } = require('../data');
+// const { localPlans } = require('../data');
 
 const getAllConsaludPlans = async () => {
    try {
-      return await clientPlansAxios.get('/planes');
+      return await clientPlansAxios.get('/api-planes');
    } catch (error) {
       console.error(error);
    }
@@ -24,10 +24,10 @@ const getConsaludPlansByPrice = async (req, res = response) => {
             )}, debe ser mayor a $500.000 y menor a $1.000.000`,
          });
       }
-      // const cPlans = await getAllConsaludPlans();
-      // console.log('PLANES__CONSALUD: ', cPlans);
-      const filteredPlans = localPlans.filter(
-         (lp) => lp.precio <= maxPrice && lp.precio >= minPrice
+      const cPlans = await getAllConsaludPlans();
+      // console.log('PLANES__CONSALUD: ', cPlans.data);
+      const filteredPlans = cPlans.data.filter(
+         (lp) => lp.precio < maxPrice && lp.precio > minPrice
       );
       res.status(200).json({
          ok: true,

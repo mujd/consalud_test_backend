@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 
 const dbConnection = async () => {
    try {
-      await mongoose.connect(process.env.MONGODB_CNN, {
+      // mongodb://localhost:27017/consalud -> para usar mongo local
+      await mongoose.connect('mongodb://mongodb/consalud', {
          useNewUrlParser: true,
          useUnifiedTopology: true,
          useCreateIndex: true,
